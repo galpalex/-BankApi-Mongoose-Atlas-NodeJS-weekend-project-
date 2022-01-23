@@ -13,6 +13,8 @@ The following exercise contains the following subjects:
 
 Full stack project:
 
+DEMO: https://dashboard.heroku.com/apps/bank-api-mongoose-atlas
+
 Front-end:
 
 1. React
