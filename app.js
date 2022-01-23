@@ -1,10 +1,11 @@
 const express = require("express");
+require("./db/mongoose");
 const cors = require("cors");
 const path = require("path");
 const app = express();
-const mongoose = require("mongoose");
+
 const clientsRouters = require("./routes/client.routers");
-require("dotenv").config();
+
 const publicPath = path.join(__dirname, "client/build");
 app.use(express.static(publicPath));
 app.use(cors());
@@ -17,12 +18,6 @@ app.get("*", (req, res) => {
 });
 
 const port = process.env.PORT || 5000;
-
-const dbUrl = `mongodb+srv://galpalex:${process.env.PASS}@cluster0.goitp.mongodb.net/clients?retryWrites=true&w=majority`;
-mongoose.connect(dbUrl, () => console.log("connected to mongo cloud"));
-
-//local;
-//mongoose.connect("mongodb://127.0.0.1:27017/clients");
 
 app.listen(port, () => {
   console.log("listening on port " + port);
